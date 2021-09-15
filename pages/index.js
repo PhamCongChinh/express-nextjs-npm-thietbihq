@@ -2,8 +2,10 @@ import SEO from '../components/SEO'
 import Layout from '../components/Layout'
 import ProductsList from '../components/ProductsList'
 import { getProducts } from '../services/product'
-const Home = ({ products }) => {
+const Home = () => {
+	const products = getProducts()
 	if (!products) return <div>Loading...</div>
+	console.log(products)
 	return (
 		<Layout>
 			<SEO
@@ -11,18 +13,21 @@ const Home = ({ products }) => {
 				siteTitle="https://thietbihq.com"
 				description="Cơ khí, điện nước, sơn Epoxy, thảm cầu lông, văn phòng, may mặc, khu công nghiệp Nam Định"
 			/>
-			<ProductsList products={products} />
+			
 		</Layout>
 	)
 }
 
-export const getStaticProps = async () => {
+/*export const getStaticProps = async () => {
 	const products = await getProducts()
 	return {
 		props: {
 			products,
 		}
 	}
-}
+}*/
 
 export default Home
+/**
+ * <ProductsList products={products} />
+ */

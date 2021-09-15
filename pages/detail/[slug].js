@@ -4,21 +4,23 @@ import { getParamsProduct, getProduct } from '../../services/product'
 import ProductItem from '../../components/ProductItem'
 const Detail = ({ product }) => {
     const breadcrumb = {
-        cname: product.cname,
-        name: product.name
+        /*cname: product.cname,
+        name: product.name*/
+        cname: 'product.cname',
+        name: 'product.name'
     }
     return (
         <Layout breadcrumb={breadcrumb}>
             <SEO
-				title={`${product.name}`}
+				title={``}
 				siteTitle="https://thietbihq.com"
-				description={`${product.description} - Thiết bị HQ Nam Định`}
+				description={` - Thiết bị HQ Nam Định`}
 			/>
-            <ProductItem product={product}/>
+            
         </Layout>
     )
 }
-export const getStaticPaths = async () => {
+/*export const getStaticPaths = async () => {
     const paths = await getParamsProduct()
     return {
         paths,
@@ -32,6 +34,10 @@ export const getStaticProps = async ({ params }) => {
             product,
         }
     }
-}
+}*/
 
 export default Detail
+
+/**
+ * <ProductItem product={product}/>
+ */

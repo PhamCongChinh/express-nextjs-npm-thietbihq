@@ -1,6 +1,5 @@
-import axios from './axiosClient'
-//http://api.thietbihq.com
-//import axios from 'axios'
+//import axios from './axiosClient'
+import axios from 'axios'
 import useSWR from 'swr'
 const fetcher = async (url) => await axios.get(url).then(res => res.data)
 export const getCategories = () => {
@@ -11,7 +10,7 @@ export const getCategories = () => {
         console.log(error.message)
     }
 }
-export const getCategory = async (slug) => {
+/*export const getCategory = async (slug) => {
     const arrSlug = slug.split('-')
     const id = arrSlug[arrSlug.length - 1]
     try {
@@ -40,4 +39,4 @@ export const getProductsByCategory = async (slug) => {
     } catch (error) {
         console.log(error)
     }
-}
+}*/

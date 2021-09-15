@@ -1,17 +1,18 @@
-import axios from './axiosClient'
-//import axios from 'axios'
+//import axios from './axiosClient'
+import axios from 'axios'
 import useSWR from 'swr'
 const fetcher = async (url) => await axios.get(url).then(res => res.data)
-export const getProducts = async () => {
+export const getProducts = () => {
     try {
-        const response = await axios.get(`/api/v1/products`)
+        //const response = await axios.get(`/api/v1/products`)
+        const response = useSWR(`/api/v1/products`, fetcher)
         return response.data
     } catch (error) {
         console.log(error)
     }
 }
 
-export const getParamsProduct = async () => {
+/*export const getParamsProduct = async () => {
     const products = await axios.get(`/api/v1/products`)
     if (!products) return <div>Loading...</div>
     return products.data.map(product => ({
@@ -30,7 +31,7 @@ export const getProduct = async (slug) => {
     } catch (error) {
         console.log(error)
     }
-}
+}*/
 
 export const getNewproducts = () => {
     try {

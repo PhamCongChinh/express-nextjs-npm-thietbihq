@@ -5,20 +5,21 @@ import {getCategory, getParamsCategory, getProductsByCategory } from '../../serv
 
 const ProductsByCategory = ({ category, products }) => {
     const breadcrumb = {
-        name: category.name
+        //name: category.name
+        name: 'asd'
     }
     return (
         <Layout breadcrumb={breadcrumb}>
             <SEO
-                title={`${category.name}`}
+                title={``}
                 siteTitle="https://thietbihq.com"
-                description={`${category.description} Thiết bị HQ - Nam Định`}
+                description={` Thiết bị HQ - Nam Định`}
             />
-            <ProductsList products={products}/>
+            
         </Layout>
     )
 }
-export const getStaticPaths = async () => {
+/*export const getStaticPaths = async () => {
     const paths = await getParamsCategory()
     return {
         paths,
@@ -34,5 +35,9 @@ export const getStaticProps = async ({ params }) => {
             products,
         }
     }
-}
+}*/
 export default ProductsByCategory
+
+/**
+ * <ProductsList products={products}/>
+ */
