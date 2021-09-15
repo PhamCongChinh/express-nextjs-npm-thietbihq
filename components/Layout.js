@@ -4,7 +4,7 @@ import { getCategories } from "../services/category"
 import { getNewproducts, getSellingProducts } from "../services/product"
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-
+import Image from 'next/image'
 const Layout = ({ children, breadcrumb }) => {
     const categories = getCategories()
     const newProducts = getNewproducts()
@@ -39,7 +39,7 @@ const Layout = ({ children, breadcrumb }) => {
                         {router.pathname === "/"? (
                             <>
                             <div className="md:col-span-4">
-                                <img src="/images/static/banner.JPG" alt="Banner HQ Việt Nam" className="h-36 w-full md:h-72"/>
+                                <Image src="/images/static/banner.JPG" alt="Banner HQ Việt Nam" height={300} width={960}/>
                                 <div className="md:grid grid-cols-4">
                                     <main className="md:col-span-3">{children}</main>
                                     <div className="md:col-span-1"><SidebarR newProducts={newProducts}/></div>

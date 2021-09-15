@@ -3,6 +3,7 @@ import React, { useState} from "react";
 import { useSelector } from "react-redux";
 import Script from 'next/script'
 import { getCategories } from "../services/category";
+import Image from 'next/image'
 const Header = () => {
 	const cartTotalQuantity = useSelector((state) => state.cart.cartTotalQuantity)
 	const categories = getCategories()
@@ -21,10 +22,10 @@ const Header = () => {
           		isSidebarOpen ? "ease-out translate-x-0" : "ease-in -translate-x-full"}`}
 			>
 				<div className="flex flex-col items-start text-lg text-white">
-					<Link href="/" >
+					<Link href="/" passHref>
 						<button className="pt-3 px-6" onClick={() => setIsSidebarOpen(false)}>Trang chủ</button>
 					</Link>
-					<Link href="/gioi-thieu.html" >
+					<Link href="/gioi-thieu.html" passHref>
 						<button className="pt-3 px-6" onClick={() => setIsSidebarOpen(false)}>Giới thiệu</button>
 					</Link>
 
@@ -37,29 +38,29 @@ const Header = () => {
 					<div className={`bg-white w-full ${isOpen ? "block" : "hidden"}`}>
 						{categories?.map(item => (
 							<div key={item.id} className="">
-								<Link href={`/san-pham/${item.slug}-${item.id}.html`}>
+								<Link href={`/san-pham/${item.slug}-${item.id}.html`} passHref>
 									<p className="text-base text-gray-600 py-1 px-6 border-b-2 cursor-pointer" onClick={() => setIsSidebarOpen(false)}>{item.name}</p>
 								</Link>
 							</div>
 						))}
 					</div>
 
-					<Link href="/tin-tuc.html" className="">
+					<Link href="/tin-tuc.html" className="" passHref>
 						<button className="pt-3 px-6" onClick={() => setIsSidebarOpen(false)}>Tin tức</button>
 					</Link>
-					<Link href="/khach-hang.html" className="">
+					<Link href="/khach-hang.html" className="" passHref>
 						<button className="pt-3 px-6" onClick={() => setIsSidebarOpen(false)}>Khách hàng</button>
 					</Link>
-					<Link href="/nha-san-xuat.html" className="">
+					<Link href="/nha-san-xuat.html" className="" passHref>
 						<button className="pt-3 px-6" onClick={() => setIsSidebarOpen(false)}>Nhà sản xuất</button>
 					</Link>
-					<Link href="/tuyen-dung.html" className="">
+					<Link href="/tuyen-dung.html" className="" passHref>
 						<button className="pt-3 px-6" onClick={() => setIsSidebarOpen(false)}>Tuyển dụng</button>
 					</Link>
-					<Link href="/dich-vu.html" className="">
+					<Link href="/dich-vu.html" className="" passHref>
 						<button className="pt-3 px-6" onClick={() => setIsSidebarOpen(false)}>Dịch vụ</button>
 					</Link>
-					<Link href="/lien-he.html" className="">
+					<Link href="/lien-he.html" className="" passHref>
 						<button className="pt-3 px-6" onClick={() => setIsSidebarOpen(false)}>Liên hệ</button>
 					</Link>
 				</div>
@@ -73,7 +74,7 @@ const Header = () => {
 						</svg>
 					</div>
 					<div className="hidden md:flex">
-						<Link href="/">
+						<Link href="/" passHref>
 							<p className="text-sm font-normal cursor-pointer pt-1">HQ Việt Nam</p>
 						</Link>
 					</div>
@@ -96,7 +97,7 @@ const Header = () => {
 
 			<div className="grid grid-flow-row auto-rows-max mx-auto justify-items-center md:grid-cols-5 max-w-6xl">
 				<div className="md:col-span-1">
-					<img src="/images/static/logo.png" alt="Logo HQ Việt Nam" className="h-36 md:h-36" />
+					<Image src="/images/static/logo.png" alt="Logo HQ Việt Nam" height={130} width={130} />
 				</div>
 				<div className="flex w-full items-center px-4 md:col-span-3 py-3 md:px-0 md:py-0">
 					<Script async src="https://cse.google.com/cse.js?cx=13a0dccfea6d6816a"></Script>
