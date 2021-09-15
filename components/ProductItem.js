@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../features/cart/cartSlice'
+import Image from 'next/image'
 const ProductItem = ({ product }) => {
     const item = {
         id: product.id,
@@ -13,7 +14,7 @@ const ProductItem = ({ product }) => {
         <div className="p-2">
             <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="grid h-72 w-full md:grid-cols-1 p-2">
-                    <img src={`/images/${product.image}`} alt={product.name} className="max-h-72 w-full object-top object-contain"/>
+                    <Image src={`/images/${product.image}`} alt={product.name} height={150} width={150}/>
                 </div>
                 <div className="grid pt-5 md:pt-0 md:grid-cols-1 px-2 pb-2 ">
                     <div className="border-b-2 pb-2">
@@ -43,7 +44,7 @@ const ProductItem = ({ product }) => {
                             </button>
                         </div>
                         <div className="flex-1 pl-1">
-                            <Link href="/shop/cart">
+                            <Link href="/shop/cart" passHref>
                             <button onClick={() => dispatch(addToCart(item))} className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                                 Mua ngay
                             </button>
@@ -63,3 +64,6 @@ const ProductItem = ({ product }) => {
 }
 
 export default ProductItem
+/**
+ * className="max-h-72 w-full object-top object-contain"
+ */

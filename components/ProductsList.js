@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Link from "next/link";
 import ReactPaginate from 'react-paginate'
+import Image from 'next/image';
 const ProductsList = ({ products }) => {
 	const [pageNumber, setPageNumber] = useState(0)
     const productsPerPage = 18
@@ -18,7 +19,7 @@ const ProductsList = ({ products }) => {
 					<Link href={`/detail/${item.slug}-${item.id}.html`}>
 						<a>
 							<div className="h-52 items-center">
-								<img src={`/images/${item.image}`} alt={item.name} className="max-h-52 w-full" />
+								<Image src={`/images/${item.image}`} alt={item.name} height={120} width={120}/>
 							</div>
 							<div className="pt-2 mb-6">
 								<h1 className="font-semibold text-gray-700 text-sm">{item.name}</h1>
@@ -56,3 +57,7 @@ const ProductsList = ({ products }) => {
 };
 
 export default ProductsList;
+
+/***
+ * className="max-h-52 w-full" 
+ */
