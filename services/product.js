@@ -5,6 +5,7 @@ const fetcher = async (url) => await axios.get(url).then(res => res.data)
 export const getProducts = () => {
     try {
         //const response = await axios.get(`/api/v1/products`)
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const response = useSWR(`/api/v1/products`, fetcher)
         return response.data
     } catch (error) {
@@ -35,6 +36,7 @@ export const getProduct = async (slug) => {
 
 export const getNewproducts = () => {
     try {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const response = useSWR(`/api/v1/newproducts`, fetcher)
         return response.data
     } catch (error) {
@@ -44,6 +46,7 @@ export const getNewproducts = () => {
 
 export const getSellingProducts = () => {
     try {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const response = useSWR(`/api/v1/sellingproducts`, fetcher)
         return response.data
     } catch (error) {
