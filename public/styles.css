@@ -1,0 +1,31 @@
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+form.gsc-search-box {
+  margin-bottom: 0;
+}
+form table.gsc-search-box td.gsc-input{
+  padding-right: 0;
+}
+form .gsc-search-button{
+  margin-left: 0;
+}
+form .gsc-search-button-v2{
+  padding: 10px 14px;
+}
+
+.pagination{
+  display: flex;
+}
+.pagination li{
+  padding:3px 10px;
+  border-radius: 3px;
+}
+.active {
+  background-color: #007bff;
+  color: #fff;
+}
+.prevnext{
+  background-color: aqua;
+}
